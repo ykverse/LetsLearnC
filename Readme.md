@@ -30,7 +30,7 @@ So I went back to the basement. The **foundation**. The thing that built Linux, 
 
 No garbage collector. No hand-holding. You want memory? You ask for it. You done with it? You free it (or you don't, and things explode — which is honestly a great way to learn).
 
-Here's why C hits different in 2025:
+Here's why C hits different :
 
 - 🧠 **Understand what AI-generated code is actually doing** at the system level
 - ⚡ **Pointers, memory, stack vs heap** — stuff most devs wave their hands at
@@ -60,11 +60,12 @@ Every project has:
 ---
 
 ### 📦 `SimpleFunPass`
-**The Simple Fun Way To Generate Passwords..!!.**
+**The Simple Fun Way To Generate Passwords..!!**
 
 **What it does:** You give it a number. It gives you a chaotic, beautiful, unhinged password. You're welcome.
 
-So for project #1, instead of printing "Hello World" like a boring person, I built a **random password generator** — because security is literally my thing and also because it forced me to actually *use* C concepts right away instead of just vibing with `printf`.
+**So for project #1**, instead of printing "Hello World" like a boring person, I built a **random password generator** — because security is literally my thing and also because it forced me to actually *use* C concepts right away instead of just vibing with `printf`.
+
 
 ![simplefunpass](./SimpleFunPass/simplefunpass.png)
 
@@ -112,7 +113,7 @@ git clone https://github.com/ykverse/LetsLearnC.git
 cd LetsLearnC
 
 # pick a project
-cd 00_hello_world
+cd <filename>
 
 # compile it
 gcc main.c -o main
