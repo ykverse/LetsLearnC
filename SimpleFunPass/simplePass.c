@@ -5,18 +5,36 @@
  int main(){
     
 	srand(time(NULL));
-	int pass_len = 10;
+	int pass_len;
+
+	while(1){
+
+		printf("Enter lenght of the password: \n");
+	     	if(scanf("%d", &pass_len) == 0 ){
+			   printf("You are breaking the math budd.!! Really 0 len pass??\n");
+			   while(getchar() != '\n');
+			   continue;
+	   			}
+
+			if (pass_len < 8){
+				printf("ha ha password len lessthan 8, hackers love you buddy..\n");
+				continue;
+			}	
+		break;		
+	}
+	
+	
 	char password[pass_len + 1];
-	char pass_char[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=[]{}|;':\",./<>?\\`~";
+	char pass_char[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=[]{}|;':\",./<>?\\\\`~";
  	for (int i = 0; i<pass_len;i++){
 
-		int random = rand() % sizeof(pass_char)-1;
+		int random = rand() % (sizeof(pass_char)-1);
 		password[i] = pass_char[random];
 			
 	}
-	password[pass_len] = 0;
-
-	printf("\nYour Fun Password is: %s",password);
-	
-		 
+		password[pass_len] = 0;
+		printf("\nYour Fun Password is: %s",password);
+	return 0;
     }
+
+	
