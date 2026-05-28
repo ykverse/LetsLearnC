@@ -7,14 +7,12 @@
 	srand(time(NULL));
 	int pass_len = 10;
 	char password[pass_len + 1];
-	char pass_char[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	char pass_char[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=[]{}|;':\",./<>?\\`~";
  	for (int i = 0; i<pass_len;i++){
 
 		int random = rand() % sizeof(pass_char)-1;
 		password[i] = pass_char[random];
-		
-		
-		
+			
 	}
 	password[pass_len] = 0;
 
