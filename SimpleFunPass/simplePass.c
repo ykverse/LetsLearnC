@@ -9,15 +9,20 @@
 
 	while(1){
 
-		printf("Enter lenght of the password: \n");
+		printf("Enter length of the password: \n");
 	     	if(scanf("%d", &pass_len) == 0 ){
-			   printf("You are breaking the math budd.!! Really 0 len pass??\n");
+			   printf("Thats not even a number buddy\n");
 			   while(getchar() != '\n');
 			   continue;
 	   			}
+			if (pass_len <=0){
+				printf("You are breaking the math budd.!! Really 0 length pass??\n");
+				continue;
+
+			}	
 
 			if (pass_len < 8){
-				printf("ha ha password len lessthan 8, hackers love you buddy..\n");
+				printf("Ha Ha Password length lessthan 8, Hackers loves you buddy..\n");
 				continue;
 			}	
 		break;		
