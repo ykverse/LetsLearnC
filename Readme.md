@@ -73,6 +73,43 @@ Every project has:
 
 ---
 
+### 📦 `StupidFunEncrypt/` — *The Stupidly Genius Encryptor* 🔐💀
+
+**What it does:** Takes anything you throw at it — text, files, your secrets, your enemies' secrets — and scrambles it with a key. Run it again with the same key? Unscrambled. It's encryption. Stupid, beautiful, raw encryption.
+
+```bash
+echo "hello hacker" | ./stupidFunEncrypt mykey
+# outputs: cursed gibberish 🗿
+
+echo "hello hacker" | ./stupidFunEncrypt mykey | ./stupidFunEncrypt mykey  
+# outputs: hello hacker 👻
+```
+
+This one hit different. Because this isn't just a fun program — this is **how real encryption actually works at the bit level**. XOR is literally inside AES, inside TLS, inside every secure connection your browser makes right now. And here it is, naked, in 20 lines of C.
+
+Here's what I learned that broke my brain (in a good way):
+
+- 🧮 **XOR (`^`) is reversible** — `A ^ B ^ B = A`. That's it. That's the magic. Apply the same operation twice and you're back where you started. I knew this from cybersecurity theory. Writing it myself in raw C hit completely different.
+- 👆 **Pointer arithmetic** — `*key++` doesn't just read the character, it moves the pointer to the next one in the same breath. No index. No `.charAt()`. Just a pointer walking through memory like it owns the place.
+- 🔑 **Hashing the key into a bitmask** — summing up all the ASCII values of the key characters into one integer, then XORing every byte of input against it. Simple. Dumb. Effective. *Stupid fun.*
+- 📟 **`getchar()` / `putchar()` + EOF** — the program reads from stdin one character at a time until there's nothing left. Pipe anything into it. Files, strings, whatever. That's Unix philosophy and it's beautiful.
+- 🖥️ **`argc` and `argv[]`** — command-line arguments in C, no frameworks, no argument parsers. Just `argv[1]` and trust.
+
+```c
+// the line that made me feel like a hacker
+while(*key){
+    hash += (*key++);  // dereference, add to hash, increment pointer — one shot
+}
+```
+
+Is this cryptographically secure? Absolutely not 😂  
+Is this how XOR ciphers work at the metal level? **100% yes.**  
+Did I learn more about bits, memory, and pointers from this than from any YouTube tutorial? **Without question.**
+
+![StupidFunEncrypt output](/StupidFunEncrypt/stupidfunencrypt.png)
+
+---
+
 > 🚧 *More projects incoming. Each one is a new unlock.*
 
 ---
