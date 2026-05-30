@@ -84,29 +84,16 @@ echo "hello hacker" | ./stupidFunEncrypt mykey
 echo "hello hacker" | ./stupidFunEncrypt mykey | ./stupidFunEncrypt mykey  
 # outputs: hello hacker 👻
 ```
+![StupidFunEncrypt output](/StupidFunEncrypt/stupidfunencrypt.png)
 
 This one hit different. Because this isn't just a fun program — this is **how real encryption actually works at the bit level**. XOR is literally inside AES, inside TLS, inside every secure connection your browser makes right now. And here it is, naked, in 20 lines of C.
 
-Here's what I learned that broke my brain (in a good way):
-
-- 🧮 **XOR (`^`) is reversible** — `A ^ B ^ B = A`. That's it. That's the magic. Apply the same operation twice and you're back where you started. I knew this from cybersecurity theory. Writing it myself in raw C hit completely different.
-- 👆 **Pointer arithmetic** — `*key++` doesn't just read the character, it moves the pointer to the next one in the same breath. No index. No `.charAt()`. Just a pointer walking through memory like it owns the place.
-- 🔑 **Hashing the key into a bitmask** — summing up all the ASCII values of the key characters into one integer, then XORing every byte of input against it. Simple. Dumb. Effective. *Stupid fun.*
-- 📟 **`getchar()` / `putchar()` + EOF** — the program reads from stdin one character at a time until there's nothing left. Pipe anything into it. Files, strings, whatever. That's Unix philosophy and it's beautiful.
-- 🖥️ **`argc` and `argv[]`** — command-line arguments in C, no frameworks, no argument parsers. Just `argv[1]` and trust.
-
-```c
-// the line that made me feel like a hacker
-while(*key){
-    hash += (*key++);  // dereference, add to hash, increment pointer — one shot
-}
-```
 
 Is this cryptographically secure? Absolutely not 😂  
 Is this how XOR ciphers work at the metal level? **100% yes.**  
 Did I learn more about bits, memory, and pointers from this than from any YouTube tutorial? **Without question.**
 
-![StupidFunEncrypt output](/StupidFunEncrypt/stupidfunencrypt.png)
+
 
 ---
 
@@ -122,30 +109,18 @@ Did I learn more about bits, memory, and pointers from this than from any YouTub
 echo "i built this" | ./stupidTee output.txt
 # prints to screen AND saves to output.txt at the same time 🤯
 ```
+![StupidTee output](./StupidTee/tee.png)
 
 This project is lowkey one of the most *practical* things you can build early in C because it touches **File I/O** — the thing that makes programs actually interact with the real world beyond just the terminal.
 
-Here's what clicked:
-
-- 📂 **`fopen()` / `fclose()`** — opening a file in `"w"` mode (write). If it doesn't exist, C creates it. If it does, it obliterates it. No asking. No warning. Just gone. Respect the `"w"`.
-- 💥 **`perror()`** — if the file couldn't open, this prints the actual OS-level error message. Not just "something went wrong" — the *real* reason. Permission denied? Disk full? C will snitch.
-- 🔀 **`putchar(c)` + `putc(c, fp)`** — one sends the character to stdout (your screen), the other writes it to the file. Same character, two destinations, one loop. That's the whole trick.
-- 🖥️ **`FILE *fp`** — your first file pointer. Just a pointer to a file stream. Everything in C is a pointer to something. Files, strings, arrays — pointers all the way down.
-- 🛡️ **`argc != 2` validation** — the program refuses to run without a filename argument. Graceful. Professional. Your past self from `SimpleFunPass` would be proud.
-
-```c
-// the moment C became real — reading AND writing at the same time
-while ((c = getchar()) != EOF) {
-    putchar(c);      // → terminal
-    putc(c, fp);     // → file
-}
-```
 
 Unix has a `tee` command that does exactly this. It's been in Linux since forever.  
 You just rebuilt it. In C. From scratch.  
 That's not a beginner project anymore. That's systems programming. 🔩
 
-![StupidTee output](./StupidTee/tee.png)
+ Fun Fact: The command is literally named after a T-shaped plumbing pipe — the one that splits water flow into two directions. One stream in, two streams out. Terminal and file. A 1970s Unix developer looked at a pipe fitting and said "yeah that's the one" and honestly that's the most C programmer thing ever. 
+
+
 
 ---
 
