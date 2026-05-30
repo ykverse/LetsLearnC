@@ -145,7 +145,7 @@ Unix has a `tee` command that does exactly this. It's been in Linux since foreve
 You just rebuilt it. In C. From scratch.  
 That's not a beginner project anymore. That's systems programming. 🔩
 
-![StupidTee output](./StupidTee/screenshot.png)
+![StupidTee output](./StupidTee/tee.png)
 
 ---
 
