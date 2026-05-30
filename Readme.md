@@ -114,6 +114,41 @@ Did I learn more about bits, memory, and pointers from this than from any YouTub
 
 ---
 
+### 📦 `StupidTee/` — *The Clone That Does Two Things At Once* 🪄📄
+
+**What it does:** You type (or pipe) something in — it prints it to your terminal AND saves it to a file. Simultaneously. Like the Unix `tee` command. Except you built it yourself from scratch in C.
+
+```bash
+echo "i built this" | ./stupidTee output.txt
+# prints to screen AND saves to output.txt at the same time 🤯
+```
+
+This project is lowkey one of the most *practical* things you can build early in C because it touches **File I/O** — the thing that makes programs actually interact with the real world beyond just the terminal.
+
+Here's what clicked:
+
+- 📂 **`fopen()` / `fclose()`** — opening a file in `"w"` mode (write). If it doesn't exist, C creates it. If it does, it obliterates it. No asking. No warning. Just gone. Respect the `"w"`.
+- 💥 **`perror()`** — if the file couldn't open, this prints the actual OS-level error message. Not just "something went wrong" — the *real* reason. Permission denied? Disk full? C will snitch.
+- 🔀 **`putchar(c)` + `putc(c, fp)`** — one sends the character to stdout (your screen), the other writes it to the file. Same character, two destinations, one loop. That's the whole trick.
+- 🖥️ **`FILE *fp`** — your first file pointer. Just a pointer to a file stream. Everything in C is a pointer to something. Files, strings, arrays — pointers all the way down.
+- 🛡️ **`argc != 2` validation** — the program refuses to run without a filename argument. Graceful. Professional. Your past self from `SimpleFunPass` would be proud.
+
+```c
+// the moment C became real — reading AND writing at the same time
+while ((c = getchar()) != EOF) {
+    putchar(c);      // → terminal
+    putc(c, fp);     // → file
+}
+```
+
+Unix has a `tee` command that does exactly this. It's been in Linux since forever.  
+You just rebuilt it. In C. From scratch.  
+That's not a beginner project anymore. That's systems programming. 🔩
+
+![StupidTee output](./StupidTee/screenshot.png)
+
+---
+
 ## 🧭 The Road (Roughly)
 
 ```
