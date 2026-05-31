@@ -5,14 +5,44 @@
 
 void compress(){
 
+    int f_char = getchar();
+    int repeter_counter = 1;
+    int n_char;
 
+    while((n_char = getchar()) != EOF){
+
+        if (n_char == f_char){
+
+            repeter_counter++;
+
+            if(repeter_counter >= 255){
+
+                putchar(f_char);
+                putchar(repeter_counter);
+                repeter_counter = 0;
+            }
+
+        }
+        else{
+            putchar(f_char);
+            putchar(repeter_counter);
+            repeter_counter = 1;
+           f_char = n_char;
+        }
+
+    }
+
+    putchar(f_char);
+    putchar(repeter_counter);
 
 }
 
 void decompress(){
 
+    printf("lets decompress...\n");
 
-    
+
+
 }
 
 int main(int argc, char *argv[])
@@ -25,13 +55,13 @@ int main(int argc, char *argv[])
 
         if (strcmp(argv[1] , "compress") == 0){
 
-            printf("compressing....\n");
-            compres();
+            
+            compress();
         }
 
         else if (strcmp(argv[1] , "decompress") == 0){
 
-            printf("decompressing....\n");
+            
             decompress();
 
         }
