@@ -93,6 +93,30 @@ Is this cryptographically secure? Absolutely not 😂
 Is this how XOR ciphers work at the metal level? **100% yes.**  
 Did I learn more about bits, memory, and pointers from this than from any YouTube tutorial? **Without question.**
 
+---
+
+
+
+### 📦 `StupidTee/` — *The Clone That Does Two Things At Once* 🪄📄
+
+**What it does:** You type (or pipe) something in — it prints it to your terminal AND saves it to a file. Simultaneously. Like the Unix `tee` command. Except you built it yourself from scratch in C.
+
+```bash
+echo "i built this" | ./stupidTee output.txt
+# prints to screen AND saves to output.txt at the same time 🤯
+```
+![StupidTee output](./StupidTee/tee.png)
+
+This project is lowkey one of the most *practical* things you can build early in C because it touches **File I/O** — the thing that makes programs actually interact with the real world beyond just the terminal.
+
+
+Unix has a `tee` command that does exactly this. It's been in Linux since forever.  
+You just rebuilt it. In C. From scratch.  
+That's not a beginner project anymore. That's systems programming. 🔩
+
+ Fun Fact: The command is literally named after a T-shaped plumbing pipe — the one that splits water flow into two directions. One stream in, two streams out. Terminal and file. A 1970s Unix developer looked at a pipe fitting and said "yeah that's the one" and honestly that's the most C programmer thing ever. 
+
+
 
 
 ---
@@ -115,28 +139,6 @@ RLE is dead simple — instead of storing `AAAAAAA` it stores `A7`. That's it. T
 ---
 
 > 🚧 *More projects incoming. Each one is a new unlock.*
-
----
-
-### 📦 `StupidTee/` — *The Clone That Does Two Things At Once* 🪄📄
-
-**What it does:** You type (or pipe) something in — it prints it to your terminal AND saves it to a file. Simultaneously. Like the Unix `tee` command. Except you built it yourself from scratch in C.
-
-```bash
-echo "i built this" | ./stupidTee output.txt
-# prints to screen AND saves to output.txt at the same time 🤯
-```
-![StupidTee output](./StupidTee/tee.png)
-
-This project is lowkey one of the most *practical* things you can build early in C because it touches **File I/O** — the thing that makes programs actually interact with the real world beyond just the terminal.
-
-
-Unix has a `tee` command that does exactly this. It's been in Linux since forever.  
-You just rebuilt it. In C. From scratch.  
-That's not a beginner project anymore. That's systems programming. 🔩
-
- Fun Fact: The command is literally named after a T-shaped plumbing pipe — the one that splits water flow into two directions. One stream in, two streams out. Terminal and file. A 1970s Unix developer looked at a pipe fitting and said "yeah that's the one" and honestly that's the most C programmer thing ever. 
-
 
 
 ---
