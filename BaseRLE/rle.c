@@ -14,7 +14,8 @@ void compress(){
         if (n_char == f_char){
 
             repeter_counter++;
-
+            // A single byte can only store up to 255. 
+            // Dump the block and restart if we overflow.
             if(repeter_counter >= 255){
 
                 putchar(f_char);
@@ -56,11 +57,6 @@ void decompress(){
             putchar(c);
         }
     }
-
-    
-
-
-
 }
 
 int main(int argc, char *argv[])
@@ -73,15 +69,12 @@ int main(int argc, char *argv[])
 
         if (strcmp(argv[1] , "compress") == 0){
 
-            
-            compress();
+           compress();
         }
 
         else if (strcmp(argv[1] , "decompress") == 0){
-
-            
+           
             decompress();
-
         }
         else{
 
@@ -89,8 +82,6 @@ int main(int argc, char *argv[])
             exit(-1);
 
         }
-
-
 
     return 0;
 }
