@@ -97,6 +97,23 @@ Did I learn more about bits, memory, and pointers from this than from any YouTub
 
 ---
 
+### 📦 `BaseRLE/` — *Zip Who? I Built My Own* 🗜️
+
+**What it does:** Compresses and decompresses data using **Run-Length Encoding** — the same algorithm used in old bitmap images, fax machines, and early game sprites.
+
+```bash
+echo "AAAAAABBBCC" | ./stupidCompress compress | ./stupidCompress decompress
+# back to: AAAAAABBBCC
+```
+
+You just built a compression algorithm. Not used one. **Built one.** `zlib` is shaking.
+
+RLE is dead simple — instead of storing `AAAAAAA` it stores `A7`. That's it. That's compression. And this project implements both directions: squeeze it down, blow it back up — perfectly.
+
+![StupidCompress output](./BaseRLE/screenshot.pngscre)
+
+---
+
 > 🚧 *More projects incoming. Each one is a new unlock.*
 
 ---
