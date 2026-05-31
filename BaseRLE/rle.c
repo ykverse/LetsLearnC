@@ -39,7 +39,25 @@ void compress(){
 
 void decompress(){
 
-    printf("lets decompress...\n");
+    while(1){
+
+        int c = getchar();
+        int count = getchar();
+
+        if (c == EOF){
+            break;
+        }
+
+        if (count == EOF){
+            break;
+        }
+
+        for (int i=0; i < count; i++ ){
+            putchar(c);
+        }
+    }
+
+    
 
 
 
