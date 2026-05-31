@@ -110,7 +110,7 @@ You just built a compression algorithm. Not used one. **Built one.** `zlib` is s
 
 RLE is dead simple — instead of storing `AAAAAAA` it stores `A7`. That's it. That's compression. And this project implements both directions: squeeze it down, blow it back up — perfectly.
 
-![StupidCompress output](./BaseRLE/screenshot.pngscre)
+![BaseRLE output](./BaseRLE/screenshot.png)
 
 ---
 
