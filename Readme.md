@@ -156,7 +156,7 @@ Functions
    ↓
 Arrays & Strings
    ↓
-Pointers 😱
+Pointers 
    ↓
 Memory Management (malloc/free)
    ↓
